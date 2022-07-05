@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Movie = require('./models/movie');
 
-
+//hae kaikki elokuvat toiminto
 router.get("/movies", async (req, res) => {
   try {
     const movies = await Movie.find();
@@ -13,7 +13,7 @@ router.get("/movies", async (req, res) => {
 })
 
 
-
+//lisää elokuva 
 router.post("/movies", async (req, res) => {
     const movie = new Movie({
       title: req.body.title,
@@ -42,7 +42,7 @@ router.delete("/movies", async (req, res) => {
     });
   })
 
-
+//olemassa olevan tiedoston päivitystä/muokkaustas
   router.put("/movies/:id", async (req, res) => {
     await Movie.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true}, (err, result) => { 
       if (err){ 
