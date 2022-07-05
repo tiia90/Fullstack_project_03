@@ -7,6 +7,7 @@ app.use(bodyParser.json());
 app.use('/', routes);
 
 const mongoose = require('mongoose');
+//yhteys tietokantaan, tällä kertaa en tehnyt .env tiedosta koska viimeksi en saanut sitä githubissa piiloon
 const mongoURL = 'mongodb+srv://tiia90:3heivaan4@cluster0.igutn.mongodb.net/moviedb?retryWrites=true&w=majority';
 mongoose.connect(mongoURL, { useNewUrlParser: true , useUnifiedTopology: true});
 const db = mongoose.connection;
